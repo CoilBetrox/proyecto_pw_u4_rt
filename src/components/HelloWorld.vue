@@ -31,10 +31,56 @@
 </template>
 
 <script>
+
+import obtenerEmpleado from '@/helpers/procesarEmpleado'
+import borrarEmpleado from '@/helpers/procesarEmpleado'
+import insertarEmpleado from '@/helpers/procesarEmpleado'
+import actualizarEmpleado from '@/helpers/procesarEmpleado'
+
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods:{
+    async buscar(id){
+      await obtenerEmpleado(id)
+    },
+    async borrar(id){
+      await borrarEmpleado(id)
+    },
+    async actualizar(body){
+      await actualizarEmpleado(body)
+    },
+    async insertar(body){
+      await insertarEmpleado(body)
+    }
+  },
+  mounted(){
+    this.buscar(2);
+
+    const empl =
+    {
+      'id': 4,
+      'nombre': 'name4',
+      'apellido': 'ape4',
+      'fechaNacimiento': '2004-12-01T00:00:00',
+      'salario': 350
+    }
+    this.insertar(empl);
+
+    const empl2 =
+    {
+      'id': 2,
+      'nombre': 'namee2',
+      'apellido': 'apee2',
+      'fechaNacimiento': '2004-12-01T00:00:00',
+      'salario': 3502
+    }
+    this.actualizar(empl2);
+
+    this.borrar();
   }
 }
 </script>
