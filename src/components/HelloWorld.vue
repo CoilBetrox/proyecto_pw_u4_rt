@@ -32,11 +32,12 @@
 
 <script>
 
+/*
 import obtenerEmpleado from '@/helpers/procesarEmpleado'
 import borrarEmpleado from '@/helpers/procesarEmpleado'
 import insertarEmpleado from '@/helpers/procesarEmpleado'
 import actualizarEmpleado from '@/helpers/procesarEmpleado'
-
+*/
 
 export default {
   name: 'HelloWorld',
@@ -44,6 +45,7 @@ export default {
     msg: String
   },
   methods:{
+    /*
     async buscar(id){
       await obtenerEmpleado(id)
     },
@@ -56,10 +58,11 @@ export default {
     async insertar(body){
       await insertarEmpleado(body)
     }
+    */
   },
   mounted(){
+    /*
     this.buscar(2);
-
     const empl =
     {
       'id': 4,
@@ -81,6 +84,7 @@ export default {
     this.actualizar(empl2);
 
     this.borrar();
+    */
   }
 }
 </script>

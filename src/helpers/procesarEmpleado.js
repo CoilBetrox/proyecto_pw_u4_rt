@@ -1,21 +1,21 @@
 import axios from "axios";
 
 //metodos fachada a exportar
-const obtenerEmpleado = async(id)=>{
+export const obtenerEmpleado = async(id)=>{
     return await obtenerEmpleadoAxios(id);
 }
 
 
-const insertarEmpleado = async(body) => {
+export const insertarEmpleado = async(body) => {
     return await insertarEmpleadoAxios(body)
 }
 
 
-const actualizarEmpleado = async(body) => {
+export const actualizarEmpleado = async(body) => {
     return await actualizarEmpleadoAxios(body)
 }
 
-const borrarEmpleado = async(id) => {
+export const borrarEmpleado = async(id) => {
     return await borrarEmpleadoAxios(id)
 }
  
@@ -31,7 +31,7 @@ const obtenerEmpleadoAPI = async(id)=>{
 
 //get 
 const obtenerEmpleadoAxios = async(id) => {
-    const data = axios.get(`http://localhost:8085/APINomina/V1/empleados/${id}`).then(r => r.json())
+    const data = axios.get(`http://localhost:8085/APINomina/V1/empleados/${id}`).then(r => r.data)
     console.log(data)
     return data
 }
@@ -47,10 +47,8 @@ const insertarEmpleadoAxios = async(body1) => {
 
 //put
 const actualizarEmpleadoAxios = async(body) => {
-    const headers ={
-        'Access-Control-Allow-Origin':'*'
-    }
-    const data = axios.put(`http://localhost:8085/APINomina/V1/empleados`, body, headers).then(r => r.data)
+    
+    const data = axios.put(`http://localhost:8085/APINomina/V1/empleados`, body).then(r => r.data)
     console.log(data)
     return data
 }
@@ -70,4 +68,4 @@ actualizarEmpleado;
 borrarEmpleado
 */
 
-export default {obtenerEmpleado, insertarEmpleado, actualizarEmpleado, borrarEmpleado}
+//export default {obtenerEmpleado, insertarEmpleado, actualizarEmpleado, borrarEmpleado}
